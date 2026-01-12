@@ -1,274 +1,235 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>天府九小｜孩子们的时间胶囊</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #f5f5f5;
-      color: #333;
-    }
-    header {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
       text-align: center;
-      padding: 1.5rem 1rem 0.5rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    header p {
-      color: #666;
-      font-size: 0.95rem;
     }
 
-    /* 主区域布局 */
-    .main-stage {
+    h1 { margin: 20px 0 5px; }
+    .subtitle { color: #666; margin-bottom: 20px; }
+
+    .container {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3rem;
-      margin: 2rem auto;
-      flex-wrap: wrap;
+      gap: 80px;
+      padding: 20px;
     }
 
     /* 胶囊 */
     .capsule {
-      width: 260px;
-      height: 420px;
-      border-radius: 130px;
-      background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      width: 180px;
+      height: 360px;
+      border-radius: 90px;
+      overflow: hidden;
+      border: 3px solid #ccc;
+      background: white;
+    }
+
+    .capsule-top {
+      height: 50%;
+      background: #ffd54f;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      font-weight: bold;
     }
 
-    .capsule-content {
-      width: 80%;
-      text-align: center;
-    }
-
-    .capsule-content h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .capsule-content input,
-    .capsule-content button {
-      width: 100%;
-      margin-top: 0.5rem;
-      padding: 0.5rem;
-      border-radius: 20px;
-      border: 1px solid #ddd;
+    .capsule-bottom {
+      height: 50%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
       box-sizing: border-box;
-    }
-
-    .capsule-content button {
-      background: #4f46e5;
-      color: #fff;
-      border: none;
-      cursor: pointer;
     }
 
     /* 玻璃罐 */
     .jar {
-      width: 300px;
-      height: 380px;
+      width: 260px;
+      height: 420px;
+      border-radius: 130px 130px 40px 40px;
+      border: 4px solid rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.6);
       position: relative;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
     }
 
-    .jar-mouth {
-      width: 140px;
-      height: 30px;
-      background: #ddd;
-      border-radius: 10px;
-      margin: 0 auto;
-    }
+    .jar h3 { margin-top: 0; }
 
-    .jar-body {
-      width: 100%;
-      height: 330px;
-      border: 3px solid rgba(0,0,0,0.15);
-      border-radius: 0 0 40px 40px;
-      background: rgba(255,255,255,0.4);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mini-capsule {
-      width: 36px;
-      height: 60px;
-      border-radius: 18px;
-      background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);
-      position: absolute;
-      top: -80px;
-      animation: drop 1s ease forwards;
-    }
-
-    @keyframes drop {
-      to {
-        top: calc(100% - 70px);
-      }
-    }
-
-    /* 底部图片区 */
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .search-box {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .search-box input {
-      padding: 0.5rem 1rem;
-      width: 220px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-    }
-
-    .photo-card {
+    .capsule-item {
       background: #fff;
       border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .photo-card img {
-      width: 100%;
-      display: block;
+    .capsule-item img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-top: 5px;
+      cursor: pointer;
     }
 
-    .photo-card .info {
-      font-size: 0.75rem;
-      padding: 0.4rem;
-      color: #555;
-      text-align: center;
+    button {
+      margin-top: 8px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #ff6b6b;
+      color: white;
+      cursor: pointer;
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #999;
-      padding: 1rem 0 2rem;
+    button:hover { opacity: 0.85; }
+    input { margin-top: 5px; }
+
+    /* 放大查看 */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 8px;
+    }
+
+    .lightbox a {
+      margin-top: 16px;
+      background: #fff;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-<header>
   <h1>天府九小｜孩子们的时间胶囊</h1>
-  <p>把今天的成长，悄悄留给未来</p>
-</header>
+  <div class="subtitle">把今天的成长，悄悄留给未来</div>
 
-<div class="main-stage">
-  <div class="capsule">
-    <div class="capsule-content">
-      <h2>放入时间胶囊</h2>
-      <input type="text" id="studentName" placeholder="学生姓名">
-      <input type="file" id="imageInput" accept="image/*" multiple>
-      <button onclick="saveImages()">存入胶囊</button>
+  <div class="container">
+
+    <!-- 左：胶囊 -->
+    <div class="capsule">
+      <div class="capsule-top">放入时间胶囊</div>
+      <div class="capsule-bottom">
+        <input id="studentName" type="text" placeholder="学生姓名" />
+        <input id="imageInput" type="file" accept="image/*" />
+        <button onclick="addCapsule()">存入胶囊</button>
+      </div>
     </div>
+
+    <!-- 右：玻璃罐 -->
+    <div class="jar">
+      <h3>时间胶囊罐</h3>
+      <div id="capsuleList"></div>
+    </div>
+
   </div>
 
-  <div class="jar">
-    <div class="jar-mouth"></div>
-    <div class="jar-body" id="jarBody"></div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="按学生姓名检索" oninput="searchImages()">
+  <!-- 放大查看弹窗 -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" />
+    <a id="downloadBtn" download="time-capsule.jpg">下载图片</a>
   </div>
 
-  <div class="gallery" id="gallery"></div>
-</div>
-
-<footer>
-  © 天府九小 · 时间胶囊项目
-</footer>
-
-<script>
-  const gallery = document.getElementById('gallery');
-
-  function loadImages(filter = '') {
-    const data = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');
-    gallery.innerHTML = '';
-    data.filter(item => item.name.includes(filter)).forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'photo-card';
-
-      const img = document.createElement('img');
-      img.src = item.data;
-
-      const info = document.createElement('div');
-      info.className = 'info';
-      info.textContent = item.name + ' · ' + item.time;
-
-      card.appendChild(img);
-      card.appendChild(info);
-      gallery.appendChild(card);
-    });
-  }
-
-  function saveImages() {
-    const name = document.getElementById('studentName').value.trim();
-    const input = document.getElementById('imageInput');
-
-    if (!name || input.files.length === 0) {
-      alert('请输入学生姓名并选择图片');
-      return;
+  <script>
+    function getCapsules() {
+      return JSON.parse(localStorage.getItem("capsules") || "[]");
     }
 
-    const data = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');
+    function saveCapsules(capsules) {
+      localStorage.setItem("capsules", JSON.stringify(capsules));
+    }
 
-    Array.from(input.files).forEach(file => {
+    function addCapsule() {
+      const name = document.getElementById("studentName").value.trim();
+      const file = document.getElementById("imageInput").files[0];
+
+      if (!name || !file) {
+        alert("请填写学生姓名并选择照片");
+        return;
+      }
+
       const reader = new FileReader();
-      reader.onload = e => {
-        data.push({
-          name: name,
-          data: e.target.result,
-          time: new Date().toLocaleString()
+      reader.onload = function () {
+        const capsules = getCapsules();
+        capsules.push({
+          id: Date.now(),
+          name,
+          image: reader.result
         });
-        addMiniCapsule();
-        localStorage.setItem('timeCapsuleImages', JSON.stringify(data));
-        loadImages();
+        saveCapsules(capsules);
+        document.getElementById("studentName").value = "";
+        document.getElementById("imageInput").value = "";
+        renderCapsules();
       };
       reader.readAsDataURL(file);
-    });
+    }
 
-    input.value = '';
-    document.getElementById('studentName').value = '';
-  }
+    function deleteCapsule(id) {
+      if (!confirm("确定要删除这个时间胶囊吗？")) return;
+      let capsules = getCapsules();
+      capsules = capsules.filter(c => c.id !== id);
+      saveCapsules(capsules);
+      renderCapsules();
+    }
 
-  function addMiniCapsule() {
-    const jar = document.getElementById('jarBody');
-    const mini = document.createElement('div');
-    mini.className = 'mini-capsule';
-    mini.style.left = Math.random() * 260 + 'px';
-    jar.appendChild(mini);
-  }
+    function openLightbox(src) {
+      const box = document.getElementById("lightbox");
+      const img = document.getElementById("lightboxImg");
+      const dl = document.getElementById("downloadBtn");
+      img.src = src;
+      dl.href = src;
+      box.style.display = "flex";
+    }
 
-  function searchImages() {
-    const key = document.getElementById('searchInput').value.trim();
-    loadImages(key);
-  }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
 
-  loadImages();
-</script>
+    function renderCapsules() {
+      const list = document.getElementById("capsuleList");
+      const capsules = getCapsules();
+      list.innerHTML = "";
+
+      capsules.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "capsule-item";
+        div.innerHTML = `
+          <strong>${c.name}</strong><br>
+          <img src="${c.image}" onclick="openLightbox('${c.image}')" />
+          <br>
+          <button onclick="deleteCapsule(${c.id})">删除</button>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    renderCapsules();
+  </script>
 
 </body>
 </html>
