@@ -1,315 +1,323 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>天府九小｜孩子们的时间胶囊</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{\rtf1\ansi\ansicpg936\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-  <style>
-    /* ================= 基础样式 ================= */
-    body {
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-
-    header {
-      text-align: center;
-      padding: 1.5rem 1rem 0.5rem;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
-      font-weight: 600;
-    }
-
-    header p {
-      color: #666;
-      font-size: 0.95rem;
-      margin-top: 0.4rem;
-    }
-
-    /* ================= 主舞台布局 ================= */
-    .main-stage {
-      display: flex;
-      justify-content: center;
-      align-items: center; /* 中线对齐 */
-      gap: 3rem;
-      margin: 2rem auto 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 768px) {
-      .main-stage {
-        flex-direction: column;
-        gap: 2rem;
-      }
-    }
-
-    /* ================= 胶囊 ================= */
-    .capsule {
-      width: 260px;
-      height: 420px;
-      border-radius: 130px;
-      overflow: hidden;
-      background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .capsule-content {
-      width: 80%;
-      text-align: center;
-    }
-
-    .capsule-content h2 {
-      font-size: 1.05rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .capsule-content input,
-    .capsule-content button {
-      width: 100%;
-      margin-top: 0.6rem;
-      padding: 0.55rem;
-      border-radius: 20px;
-      border: 1px solid #ddd;
-      font-size: 0.9rem;
-    }
-
-    .capsule-content button {
-      background: #4f46e5;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    .capsule-content button:hover {
-      background: #4338ca;
-    }
-
-    /* ================= 玻璃罐 ================= */
-    .jar {
-      width: 300px;
-      height: 380px;
-      position: relative;
-    }
-
-    .jar-mouth {
-      width: 140px;
-      height: 28px;
-      background: #ddd;
-      border-radius: 10px;
-      margin: 0 auto;
-    }
-
-    .jar-body {
-      width: 100%;
-      height: 330px;
-      border: 3px solid rgba(0,0,0,0.15);
-      border-radius: 0 0 40px 40px;
-      background: rgba(255,255,255,0.4);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* ================= 小胶囊 ================= */
-    .mini-capsule {
-      width: 36px;
-      height: 60px;
-      border-radius: 18px;
-      background: linear-gradient(to bottom, #facc15 50%, #fff 50%);
-      position: absolute;
-      top: -80px;
-      animation: drop 1.2s ease forwards;
-    }
-
-    @keyframes drop {
-      to {
-        top: calc(100% - 70px);
-      }
-    }
-
-    /* ================= 下方展示 ================= */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1rem 2rem;
-    }
-
-    .search-box {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .search-box input {
-      padding: 0.5rem 0.8rem;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      width: 220px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-    }
-
-    .photo-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    }
-
-    .photo-card img {
-      width: 100%;
-      display: block;
-    }
-
-    .photo-card .info {
-      font-size: 0.75rem;
-      padding: 0.4rem;
-      background: #fafafa;
-      text-align: center;
-      color: #555;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #999;
-      margin: 2rem 0 1rem;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>天府九小｜孩子们的时间胶囊</h1>
-    <p>把今天的成长，悄悄留给未来</p>
-  </header>
-
-  <!-- 主舞台 -->
-  <div class="main-stage">
-
-    <!-- 时间胶囊 -->
-    <div class="capsule">
-      <div class="capsule-content">
-        <h2>放入时间胶囊</h2>
-        <input type="text" id="studentName" placeholder="学生姓名" />
-        <input type="file" id="imageInput" accept="image/*" multiple />
-        <button onclick="saveImages()">存入胶囊</button>
-      </div>
-    </div>
-
-    <!-- 玻璃存放罐 -->
-    <div class="jar">
-      <div class="jar-mouth"></div>
-      <div class="jar-body" id="jarBody"></div>
-    </div>
-
-  </div>
-
-  <!-- 展示区 -->
-  <div class="container">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="按学生姓名检索" />
-    </div>
-
-    <div class="gallery" id="gallery"></div>
-  </div>
-
-  <footer>
-    © 天府九小 · 时间胶囊项目
-  </footer>
-
-  <script>
-    const gallery = document.getElementById('gallery');
-    const jarBody = document.getElementById('jarBody');
-
-    /* 读取并渲染 */
-    function loadImages(filterName = '') {
-      const images = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');
-      gallery.innerHTML = '';
-      jarBody.innerHTML = '';
-
-      images
-        .filter(item => item.name.includes(filterName))
-        .forEach(() => addMiniCapsule());
-
-      images
-        .filter(item => item.name.includes(filterName))
-        .forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'photo-card';
-
-          const img = document.createElement('img');
-          img.src = item.data;
-
-          const info = document.createElement('div');
-          info.className = 'info';
-          info.textContent = `${item.name} · ${item.time}`;
-
-          card.appendChild(img);
-          card.appendChild(info);
-          gallery.appendChild(card);
-        });
-    }
-
-    /* 保存图片 */
-    function saveImages() {
-      const name = document.getElementById('studentName').value.trim();
-      const input = document.getElementById('imageInput');
-
-      if (!name || !input.files.length) {
-        alert('请输入学生姓名并选择图片');
-        return;
-      }
-
-      const images = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');
-      let processed = 0;
-
-      Array.from(input.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = e => {
-          images.push({
-            name,
-            data: e.target.result,
-            time: new Date().toLocaleString()
-          });
-
-          processed++;
-          if (processed === input.files.length) {
-            localStorage.setItem('timeCapsuleImages', JSON.stringify(images));
-            loadImages();
-            input.value = '';
-            document.getElementById('studentName').value = '';
-          }
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    /* 添加小胶囊 */
-    function addMiniCapsule() {
-      const mini = document.createElement('div');
-      mini.className = 'mini-capsule';
-      mini.style.left = Math.random() * 260 + 'px';
-      jarBody.appendChild(mini);
-    }
-
-    /* 搜索 */
-    document.getElementById('searchInput').addEventListener('input', e => {
-      loadImages(e.target.value.trim());
-    });
-
-    loadImages();
-  </script>
-</body>
-</html>
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-CN">\
+<head>\
+  <meta charset="UTF-8" />\
+  <title>\uc0\u22825 \u24220 \u20061 \u23567 \u65372 \u23401 \u23376 \u20204 \u30340 \u26102 \u38388 \u33014 \u22218 </title>\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\
+\
+  <style>\
+    /* ================= \uc0\u22522 \u30784 \u26679 \u24335  ================= */\
+    body \{\
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;\
+      background: #f7f7f7;\
+      margin: 0;\
+      padding: 0;\
+      color: #333;\
+    \}\
+\
+    header \{\
+      text-align: center;\
+      padding: 1.5rem 1rem 0.5rem;\
+    \}\
+\
+    header h1 \{\
+      font-size: 1.8rem;\
+      margin: 0;\
+      font-weight: 600;\
+    \}\
+\
+    header p \{\
+      color: #666;\
+      font-size: 0.95rem;\
+      margin-top: 0.4rem;\
+    \}\
+\
+    /* ================= \uc0\u20027 \u33310 \u21488 \u24067 \u23616  ================= */\
+    .main-stage \{\
+      display: flex;\
+      justify-content: center;\
+      align-items: center; /* \uc0\u20013 \u32447 \u23545 \u40784  */\
+      gap: 3rem;\
+      margin: 2rem auto 2.5rem;\
+      flex-wrap: wrap;\
+    \}\
+\
+    @media (max-width: 768px) \{\
+      .main-stage \{\
+        flex-direction: column;\
+        gap: 2rem;\
+      \}\
+    \}\
+\
+    /* ================= \uc0\u33014 \u22218  ================= */\
+    .capsule \{\
+      width: 260px;\
+      height: 420px;\
+      border-radius: 130px;\
+      overflow: hidden;\
+      background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);\
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);\
+      display: flex;\
+      align-items: center;\
+      justify-content: center;\
+    \}\
+\
+    .capsule-content \{\
+      width: 80%;\
+      text-align: center;\
+    \}\
+\
+    .capsule-content h2 \{\
+      font-size: 1.05rem;\
+      margin-bottom: 0.8rem;\
+    \}\
+\
+    .capsule-content input,\
+    .capsule-content button \{\
+      width: 100%;\
+      margin-top: 0.6rem;\
+      padding: 0.55rem;\
+      border-radius: 20px;\
+      border: 1px solid #ddd;\
+      font-size: 0.9rem;\
+    \}\
+\
+    .capsule-content button \{\
+      background: #4f46e5;\
+      color: #fff;\
+      border: none;\
+      cursor: pointer;\
+    \}\
+\
+    .capsule-content button:hover \{\
+      background: #4338ca;\
+    \}\
+\
+    /* ================= \uc0\u29627 \u29827 \u32592  ================= */\
+    .jar \{\
+      width: 300px;\
+      height: 380px;\
+      position: relative;\
+    \}\
+\
+    .jar-mouth \{\
+      width: 140px;\
+      height: 28px;\
+      background: #ddd;\
+      border-radius: 10px;\
+      margin: 0 auto;\
+    \}\
+\
+    .jar-body \{\
+      width: 100%;\
+      height: 330px;\
+      border: 3px solid rgba(0,0,0,0.15);\
+      border-radius: 0 0 40px 40px;\
+      background: rgba(255,255,255,0.4);\
+      position: relative;\
+      overflow: hidden;\
+    \}\
+\
+    /* ================= \uc0\u23567 \u33014 \u22218  ================= */\
+    .mini-capsule \{\
+      width: 36px;\
+      height: 60px;\
+      border-radius: 18px;\
+      background: linear-gradient(to bottom, #facc15 50%, #fff 50%);\
+      position: absolute;\
+      top: -80px;\
+      animation: drop 1.2s ease forwards;\
+    \}\
+\
+    @keyframes drop \{\
+      to \{\
+        top: calc(100% - 70px);\
+      \}\
+    \}\
+\
+    /* ================= \uc0\u19979 \u26041 \u23637 \u31034  ================= */\
+    .container \{\
+      max-width: 1000px;\
+      margin: 0 auto;\
+      padding: 0 1rem 2rem;\
+    \}\
+\
+    .search-box \{\
+      text-align: center;\
+      margin-bottom: 1rem;\
+    \}\
+\
+    .search-box input \{\
+      padding: 0.5rem 0.8rem;\
+      border-radius: 20px;\
+      border: 1px solid #ccc;\
+      width: 220px;\
+    \}\
+\
+    .gallery \{\
+      display: grid;\
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));\
+      gap: 1rem;\
+    \}\
+\
+    .photo-card \{\
+      background: #fff;\
+      border-radius: 12px;\
+      overflow: hidden;\
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);\
+    \}\
+\
+    .photo-card img \{\
+      width: 100%;\
+      display: block;\
+    \}\
+\
+    .photo-card .info \{\
+      font-size: 0.75rem;\
+      padding: 0.4rem;\
+      background: #fafafa;\
+      text-align: center;\
+      color: #555;\
+    \}\
+\
+    footer \{\
+      text-align: center;\
+      font-size: 0.75rem;\
+      color: #999;\
+      margin: 2rem 0 1rem;\
+    \}\
+  </style>\
+</head>\
+<body>\
+\
+  <header>\
+    <h1>\uc0\u22825 \u24220 \u20061 \u23567 \u65372 \u23401 \u23376 \u20204 \u30340 \u26102 \u38388 \u33014 \u22218 </h1>\
+    <p>\uc0\u25226 \u20170 \u22825 \u30340 \u25104 \u38271 \u65292 \u24708 \u24708 \u30041 \u32473 \u26410 \u26469 </p>\
+  </header>\
+\
+  <!-- \uc0\u20027 \u33310 \u21488  -->\
+  <div class="main-stage">\
+\
+    <!-- \uc0\u26102 \u38388 \u33014 \u22218  -->\
+    <div class="capsule">\
+      <div class="capsule-content">\
+        <h2>\uc0\u25918 \u20837 \u26102 \u38388 \u33014 \u22218 </h2>\
+        <input type="text" id="studentName" placeholder="\uc0\u23398 \u29983 \u22995 \u21517 " />\
+        <input type="file" id="imageInput" accept="image/*" multiple />\
+        <button onclick="saveImages()">\uc0\u23384 \u20837 \u33014 \u22218 </button>\
+      </div>\
+    </div>\
+\
+    <!-- \uc0\u29627 \u29827 \u23384 \u25918 \u32592  -->\
+    <div class="jar">\
+      <div class="jar-mouth"></div>\
+      <div class="jar-body" id="jarBody"></div>\
+    </div>\
+\
+  </div>\
+\
+  <!-- \uc0\u23637 \u31034 \u21306  -->\
+  <div class="container">\
+    <div class="search-box">\
+      <input type="text" id="searchInput" placeholder="\uc0\u25353 \u23398 \u29983 \u22995 \u21517 \u26816 \u32034 " />\
+    </div>\
+\
+    <div class="gallery" id="gallery"></div>\
+  </div>\
+\
+  <footer>\
+    \'a9 \uc0\u22825 \u24220 \u20061 \u23567  \'b7 \u26102 \u38388 \u33014 \u22218 \u39033 \u30446 \
+  </footer>\
+\
+  <script>\
+    const gallery = document.getElementById('gallery');\
+    const jarBody = document.getElementById('jarBody');\
+\
+    /* \uc0\u35835 \u21462 \u24182 \u28210 \u26579  */\
+    function loadImages(filterName = '') \{\
+      const images = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');\
+      gallery.innerHTML = '';\
+      jarBody.innerHTML = '';\
+\
+      images\
+        .filter(item => item.name.includes(filterName))\
+        .forEach(() => addMiniCapsule());\
+\
+      images\
+        .filter(item => item.name.includes(filterName))\
+        .forEach(item => \{\
+          const card = document.createElement('div');\
+          card.className = 'photo-card';\
+\
+          const img = document.createElement('img');\
+          img.src = item.data;\
+\
+          const info = document.createElement('div');\
+          info.className = 'info';\
+          info.textContent = `$\{item.name\} \'b7 $\{item.time\}`;\
+\
+          card.appendChild(img);\
+          card.appendChild(info);\
+          gallery.appendChild(card);\
+        \});\
+    \}\
+\
+    /* \uc0\u20445 \u23384 \u22270 \u29255  */\
+    function saveImages() \{\
+      const name = document.getElementById('studentName').value.trim();\
+      const input = document.getElementById('imageInput');\
+\
+      if (!name || !input.files.length) \{\
+        alert('\uc0\u35831 \u36755 \u20837 \u23398 \u29983 \u22995 \u21517 \u24182 \u36873 \u25321 \u22270 \u29255 ');\
+        return;\
+      \}\
+\
+      const images = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');\
+      let processed = 0;\
+\
+      Array.from(input.files).forEach(file => \{\
+        const reader = new FileReader();\
+        reader.onload = e => \{\
+          images.push(\{\
+            name,\
+            data: e.target.result,\
+            time: new Date().toLocaleString()\
+          \});\
+\
+          processed++;\
+          if (processed === input.files.length) \{\
+            localStorage.setItem('timeCapsuleImages', JSON.stringify(images));\
+            loadImages();\
+            input.value = '';\
+            document.getElementById('studentName').value = '';\
+          \}\
+        \};\
+        reader.readAsDataURL(file);\
+      \});\
+    \}\
+\
+    /* \uc0\u28155 \u21152 \u23567 \u33014 \u22218  */\
+    function addMiniCapsule() \{\
+      const mini = document.createElement('div');\
+      mini.className = 'mini-capsule';\
+      mini.style.left = Math.random() * 260 + 'px';\
+      jarBody.appendChild(mini);\
+    \}\
+\
+    /* \uc0\u25628 \u32034  */\
+    document.getElementById('searchInput').addEventListener('input', e => \{\
+      loadImages(e.target.value.trim());\
+    \});\
+\
+    loadImages();\
+  </script>\
+</body>\
+</html>\
+}
