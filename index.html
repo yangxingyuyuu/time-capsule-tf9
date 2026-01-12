@@ -1,331 +1,274 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <title>天府九小｜孩子们的时间胶囊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 1.5rem 1rem 0.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* 主区域布局 */
+    .main-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin: 2rem auto;
+      flex-wrap: wrap;
+    }
+
+    /* 胶囊 */
+    .capsule {
+      width: 260px;
+      height: 420px;
+      border-radius: 130px;
+      background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .capsule-content {
+      width: 80%;
+      text-align: center;
+    }
+
+    .capsule-content h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .capsule-content input,
+    .capsule-content button {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    .capsule-content button {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* 玻璃罐 */
+    .jar {
+      width: 300px;
+      height: 380px;
+      position: relative;
+    }
+
+    .jar-mouth {
+      width: 140px;
+      height: 30px;
+      background: #ddd;
+      border-radius: 10px;
+      margin: 0 auto;
+    }
+
+    .jar-body {
+      width: 100%;
+      height: 330px;
+      border: 3px solid rgba(0,0,0,0.15);
+      border-radius: 0 0 40px 40px;
+      background: rgba(255,255,255,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mini-capsule {
+      width: 36px;
+      height: 60px;
+      border-radius: 18px;
+      background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);
+      position: absolute;
+      top: -80px;
+      animation: drop 1s ease forwards;
+    }
+
+    @keyframes drop {
+      to {
+        top: calc(100% - 70px);
+      }
+    }
+
+    /* 底部图片区 */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .search-box input {
+      padding: 0.5rem 1rem;
+      width: 220px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .photo-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .photo-card .info {
+      font-size: 0.75rem;
+      padding: 0.4rem;
+      color: #555;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #999;
+      padding: 1rem 0 2rem;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-CN"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;天府九小｜孩子们的时间胶囊&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ================= 基础样式 ================= */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: "PingFang SC", "Microsoft YaHei", sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #f7f7f7;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.5rem 1rem 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>header h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>header p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ================= 主舞台布局 ================= */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.main-stage {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center; /* 中线对齐 */</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 3rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 2rem auto 2.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.main-stage {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>gap: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ================= 胶囊 ================= */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 260px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 420px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 130px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(to bottom, #facc15 50%, #ffffff 50%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 25px rgba(0,0,0,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule-content {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 80%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule-content h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.05rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule-content input,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule-content button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.55rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule-content button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #4f46e5;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.capsule-content button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #4338ca;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ================= 玻璃罐 ================= */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.jar {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 380px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.jar-mouth {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 140px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.jar-body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 330px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 3px solid rgba(0,0,0,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0 0 40px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.4);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ================= 小胶囊 ================= */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini-capsule {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 36px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(to bottom, #facc15 50%, #fff 50%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: -80px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: drop 1.2s ease forwards;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes drop {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>to {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>top: calc(100% - 70px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ================= 下方展示 ================= */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1000px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 1rem 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.search-box {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.search-box input {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.5rem 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 220px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.gallery {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.photo-card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 6px 16px rgba(0,0,0,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.photo-card img {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.photo-card .info {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fafafa;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #555;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #999;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 2rem 0 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;天府九小｜孩子们的时间胶囊&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;把今天的成长，悄悄留给未来&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- 主舞台 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="main-stage"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 时间胶囊 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="capsule"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="capsule-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;放入时间胶囊&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="studentName" placeholder="学生姓名" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="file" id="imageInput" accept="image/*" multiple /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="saveImages()"&gt;存入胶囊&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 玻璃存放罐 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="jar"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="jar-mouth"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="jar-body" id="jarBody"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- 展示区 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="search-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="searchInput" placeholder="按学生姓名检索" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="gallery" id="gallery"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>© 天府九小 · 时间胶囊项目</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const gallery = document.getElementById('gallery');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const jarBody = document.getElementById('jarBody');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* 读取并渲染 */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function loadImages(filterName = '') {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const images = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gallery.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>jarBody.innerHTML = '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>images</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.filter(item =&gt; item.name.includes(filterName))</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.forEach(() =&gt; addMiniCapsule());</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>images</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.filter(item =&gt; item.name.includes(filterName))</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.forEach(item =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const card = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">          </span>card.className = 'photo-card';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>const img = document.createElement('img');</p>
-<p class="p1"><span class="Apple-converted-space">          </span>img.src = item.data;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>const info = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">          </span>info.className = 'info';</p>
-<p class="p1"><span class="Apple-converted-space">          </span>info.textContent = `${item.name} · ${item.time}`;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>card.appendChild(img);</p>
-<p class="p1"><span class="Apple-converted-space">          </span>card.appendChild(info);</p>
-<p class="p1"><span class="Apple-converted-space">          </span>gallery.appendChild(card);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* 保存图片 */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function saveImages() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const name = document.getElementById('studentName').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const input = document.getElementById('imageInput');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!name || !input.files.length) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert('请输入学生姓名并选择图片');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const images = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>let processed = 0;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>Array.from(input.files).forEach(file =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const reader = new FileReader();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>reader.onload = e =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>images.push({</p>
-<p class="p1"><span class="Apple-converted-space">            </span>name,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>data: e.target.result,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>time: new Date().toLocaleString()</p>
-<p class="p1"><span class="Apple-converted-space">          </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>processed++;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>if (processed === input.files.length) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>localStorage.setItem('timeCapsuleImages', JSON.stringify(images));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>loadImages();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>input.value = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('studentName').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">          </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p1"><span class="Apple-converted-space">        </span>reader.readAsDataURL(file);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* 添加小胶囊 */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function addMiniCapsule() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const mini = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>mini.className = 'mini-capsule';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>mini.style.left = Math.random() * 260 + 'px';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>jarBody.appendChild(mini);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* 搜索 */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('searchInput').addEventListener('input', e =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>loadImages(e.target.value.trim());</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>loadImages();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<header>
+  <h1>天府九小｜孩子们的时间胶囊</h1>
+  <p>把今天的成长，悄悄留给未来</p>
+</header>
+
+<div class="main-stage">
+  <div class="capsule">
+    <div class="capsule-content">
+      <h2>放入时间胶囊</h2>
+      <input type="text" id="studentName" placeholder="学生姓名">
+      <input type="file" id="imageInput" accept="image/*" multiple>
+      <button onclick="saveImages()">存入胶囊</button>
+    </div>
+  </div>
+
+  <div class="jar">
+    <div class="jar-mouth"></div>
+    <div class="jar-body" id="jarBody"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="按学生姓名检索" oninput="searchImages()">
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+</div>
+
+<footer>
+  © 天府九小 · 时间胶囊项目
+</footer>
+
+<script>
+  const gallery = document.getElementById('gallery');
+
+  function loadImages(filter = '') {
+    const data = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');
+    gallery.innerHTML = '';
+    data.filter(item => item.name.includes(filter)).forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'photo-card';
+
+      const img = document.createElement('img');
+      img.src = item.data;
+
+      const info = document.createElement('div');
+      info.className = 'info';
+      info.textContent = item.name + ' · ' + item.time;
+
+      card.appendChild(img);
+      card.appendChild(info);
+      gallery.appendChild(card);
+    });
+  }
+
+  function saveImages() {
+    const name = document.getElementById('studentName').value.trim();
+    const input = document.getElementById('imageInput');
+
+    if (!name || input.files.length === 0) {
+      alert('请输入学生姓名并选择图片');
+      return;
+    }
+
+    const data = JSON.parse(localStorage.getItem('timeCapsuleImages') || '[]');
+
+    Array.from(input.files).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = e => {
+        data.push({
+          name: name,
+          data: e.target.result,
+          time: new Date().toLocaleString()
+        });
+        addMiniCapsule();
+        localStorage.setItem('timeCapsuleImages', JSON.stringify(data));
+        loadImages();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    input.value = '';
+    document.getElementById('studentName').value = '';
+  }
+
+  function addMiniCapsule() {
+    const jar = document.getElementById('jarBody');
+    const mini = document.createElement('div');
+    mini.className = 'mini-capsule';
+    mini.style.left = Math.random() * 260 + 'px';
+    jar.appendChild(mini);
+  }
+
+  function searchImages() {
+    const key = document.getElementById('searchInput').value.trim();
+    loadImages(key);
+  }
+
+  loadImages();
+</script>
+
 </body>
 </html>
